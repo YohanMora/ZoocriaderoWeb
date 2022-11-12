@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Login</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div>
+            <form th:action="@{/login/validateUser}"
+                  method="post"
+                  th:object="${usuario}">
+                <label for="descripcion">Correo: </label>
+                <input type="text" name="descripcion" th:field="*{correo}" />
+                <br/>
+                <label for="detalle">Detalle: </label>
+                <input type="text" name="detalle" th:field="*{contrasenna}" />
+                <br/>
+                <input type="submit" name="Login" value="Login" />
+            </form>
+        </div>
+    </body>
+</html>
