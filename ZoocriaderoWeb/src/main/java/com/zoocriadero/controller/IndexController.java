@@ -22,4 +22,10 @@ public class IndexController {
         return "/login/login";
     }
     
+    @RequestMapping("/menu")
+    public String menu(Model model, Usuario usuario) {
+        //model.addAttribute("usuario", usuario);
+        return "/menu";
+    }
+    
 }

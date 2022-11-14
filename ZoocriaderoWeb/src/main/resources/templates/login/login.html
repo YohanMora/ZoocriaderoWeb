@@ -16,7 +16,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
         </header>
         <br/>
         <div class="container">
-            <div class="container-login-form">
+            <div class="container-form">
                 <form th:action="@{/login/validateUser}"
                       method="post"
                       th:object="${usuario}"
@@ -37,8 +37,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                     <input type="submit" name="Login" value="Ingresar" 
                            id="btn-login"/>
                 </form>
-                
+
             </div>
         </div>
+        <footer class="footer">&COPY; Derechos Reservados, Curso SC-403 G3, Universidad Fidélitas</footer>
     </body>
 </html>

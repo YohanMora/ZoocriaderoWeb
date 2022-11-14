@@ -40,7 +40,9 @@
                         </tbody>
                     </table>
                     <br>
-                    <a th:href="/login/login">Salir</a>
+                    <a th:href="@{/menu}"style="color: #301934; 
+                               font-size: 14px; text-decoration: transparent">
+                                ⬅ Volver al menú principal</a>
                 </div>
                 <div th:if ="${ventas == null or ventas.empty}">
                     No tenemos lista de ventas que mostrar...

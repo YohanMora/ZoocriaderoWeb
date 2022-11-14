@@ -40,7 +40,7 @@ public class LoginController {
             return "/login/login";
         }
 
-        return "/index";
+        return "/menu";
     }
 
     @GetMapping("/login/changePassword")
@@ -53,9 +53,11 @@ public class LoginController {
     public String sendMail(Usuario usuario, Model model) {
 
         JavaEmailSender email = new JavaEmailSender();
+        
         //Sending email
         email.createAndSendEmail(usuario.getCorreo(), "Solicitud Cambio de Contraeña",
-                "Yo "+usuario.getCorreo()+", deseo que se me actualice mi contraseña.");
+                "Has recibido una solicitud de cambio de "
+                        + "contraseña por parte de "+usuario.getCorreo());
 
         return "/login/changePassword";
     }

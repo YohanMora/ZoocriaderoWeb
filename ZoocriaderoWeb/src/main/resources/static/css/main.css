@@ -59,7 +59,7 @@ input{
     color: #301934;
 }
 
-.container-login-form{
+.container-form{
     background-color: white;
     position: relative;
     top: 13%;
@@ -137,4 +137,53 @@ input{
     margin-right:40%;
     padding: 10px;
     border-radius: 10px;
+}
+
+.aParent div {
+    float: left;
+    clear: none; 
+}
+
+.menu{
+    border-radius: 7px;
+    background-color: lightsteelblue;
+    color: whitesmoke;
+    padding: 5px;
+    position: relative;
+    top: 5%;
+    margin-left: 40%;
+    margin-right: 40%;
+}
+
+hr{
+    background-color: whitesmoke;
+    border-color: whitesmoke;
+    height: 0px;
+}
+
+/* Center the loader */
+#loader {
+  position: absolute;
+  left: 52%;
+  top: 50%;
+  z-index: 1;
+  width: 50px;
+  height: 50px;
+  margin: -76px 0 0 -76px;
+  border: 10px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 10px solid #301934;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+  display: none;
+}
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
