@@ -8,20 +8,37 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
         <title>Login</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="/css/main.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
-        <div>
-            <form th:action="@{/login/validateUser}"
-                  method="post"
-                  th:object="${usuario}">
-                <label for="descripcion">Correo: </label>
-                <input type="text" name="descripcion" th:field="*{correo}" />
-                <br/>
-                <label for="detalle">Detalle: </label>
-                <input type="text" name="detalle" th:field="*{contrasenna}" />
-                <br/>
-                <input type="submit" name="Login" value="Login" />
-            </form>
+        <header class="header">
+            <h1>Bienvenido(a)</h1>
+        </header>
+        <br/>
+        <div class="container">
+            <div class="container-login-form">
+                <form th:action="@{/login/validateUser}"
+                      method="post"
+                      th:object="${usuario}"
+                      id="login-form"
+                      >
+
+                    <input id="user-form" type="email" 
+                           name="descripcion" th:field="*{correo}" 
+                           placeholder="Usuario" required />
+                    <br/><br/><br/><br/><br/>
+                    <input id="password-form" type="password" 
+                           name="contrasenna" th:field="*{contrasenna}" 
+                           placeholder="Contraseña" required />
+                    <br/><br/>
+                    <a th:href="@{/login/changePassword}" id="change-password">
+                        Olvidé mi contraseña</a>
+                    <br/><br/><br/>
+                    <input type="submit" name="Login" value="Ingresar" 
+                           id="btn-login"/>
+                </form>
+                
+            </div>
         </div>
     </body>
 </html>

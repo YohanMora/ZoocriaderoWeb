@@ -51,6 +51,16 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+	 <dependency>
+	  <groupId>com.sun.mail</groupId>
+	  <artifactId>Javax.mail</artifactId>
+	  <version>1.6.0</version>
+	 </dependency>
+	 <dependency>
+	  <groupId>activation</groupId>
+	  <artifactId>javaactivation</artifactId>
+	  <version>1.1</version>
+	 </dependency>
 	</dependencies>
 
 	<build>

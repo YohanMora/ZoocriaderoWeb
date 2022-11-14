@@ -1,0 +1,105 @@
+.header{
+    background-color: #301934 ;
+    height: 80px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    color: whitesmoke;
+    margin-bottom: 40px;
+}
+
+.container{
+    background-color: whitesmoke;
+    position: fixed;
+    top: 80px;
+    bottom: 20px;
+    left: 0;
+    width: 100%;
+    overflow: auto;
+    text-align: center;
+}
+
+#login-form{
+    padding-top: 70px;
+    padding-bottom: 70px;
+   
+}
+
+#user-form{
+    width: 250px;
+    height: 30px;
+    background-color: white;
+    color: #301934 ;
+}
+
+#password-form{
+    width: 250px;
+    height: 30px;
+    background-color: white;
+    color: #301934 ;
+}
+
+input{
+    border-color: whitesmoke;
+    border-width: 0.1px;
+}
+
+#btn-login{
+    background-color: #301934 ;
+    color: whitesmoke;
+    width: 125px;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+#change-password{
+    font-size: 12px;
+    color: #301934;
+}
+
+.container-login-form{
+    background-color: white;
+    position: relative;
+    top: 13%;
+    text-align: center;
+    margin-left: 35%;
+    margin-right: 35%;
+}
+
+.footer {
+    background-color: black;
+    text-align: center;
+    color: white;
+    height: 20px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%
+}
+
+.change-password-form{
+    top: 20%;
+    background-color: lightsteelblue;
+    position: relative;
+    padding: 30px;
+    margin-left: 30%;
+    margin-right: 30%;
+    border-radius: 7px;
+    color: whitesmoke;
+    
+}
+
+#btn-change-password{
+    background-color: #301934 ;
+    color: whitesmoke;
+    padding: 5px;
+    border-color: #301934;
+}
+
+#input-change-password{
+    width: 300px;
+    margin: 15px;
+    height: 30px;
+}
