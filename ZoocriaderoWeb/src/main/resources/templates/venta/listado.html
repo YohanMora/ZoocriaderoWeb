@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Zoocriadero</title>
+        <meta charset="UTF-8">
+        <link href="/css/main.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+        <header class="header">
+            <h2>Listado de Ventas</h2>
+        </header>
+        <br>
+        <div class="contenedor">
+            <div class="tablas">
+                <a th:href="@{/venta/nueva}">Nueva Venta</a>
+                <br>
+                <div th:if ="${ventas != null and !ventas.empty}">
+                    <br>
+                    <table border="2">
+                        <thead>
+                            <tr>
+                                <th>Descripcion</th>
+                                <th>Fecha</th>
+                                <th>Total</th>
+                                <th>Tipo de Pago</th>
+                                <th>Eliminar</th>
+                                <th>Modificar</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr th:each="venta : ${ventas}">
+                                <td th:text="${venta.descripcion}"></td>
+                                <td th:text="${venta.fechaVenta}"></td>
+                                <td th:text="${#numbers.formatDecimal(venta.total,3,2)}" style="text-align:right"></td>
+                                <td th:text="${venta.tipoPago}"></td>
+                                <td><a th:href="@{/venta/eliminar/} + ${venta.idVenta}">Eliminar</a></td>  
+                                <td><a th:href="@{/venta/modificar/} + ${venta.idVenta}">Modificar</a></td>  
+                            </tr>
+                        </tbody>
+                    </table>
+                    <br>
+                    <a th:href="/login/login">Salir</a>
+                </div>
+                <div th:if ="${ventas == null or ventas.empty}">
+                    No tenemos lista de ventas que mostrar...
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="footer">&COPY; Derechos Reservados, Curso SC-403 G3, Universidad Fidélitas</footer>
+</body>
+</html>

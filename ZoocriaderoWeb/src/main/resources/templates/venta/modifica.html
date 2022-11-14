@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Zoocriadero</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="/css/main.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+        <header class="header">
+            <h2>Datos de Venta</h2>
+        </header>
+        <div class="contenido">
+            <a th:href="@{/venta/listado}">Regresar</a>
+            <br/>
+            <form th:action="@{/venta/guardar}"
+                  method="post"
+                  th:object="${venta}">
+                <input type ="hidden" name="idVenta" th:field="*{idVenta}"/>
+                <label for="descripcion">Descripción</label>
+                <input type="text" name="descripcion" th:field ="*{descripcion}" />
+                <br/>
+                <label for="fecha">Fecha</label>
+                <input type=datetime name="fecha" th:field ="*{fechaVenta}" />
+                <br/>
+                <label for="total">Total</label>
+                <input type="number" name="total" th:field ="*{total}" />
+                <br/>
+                <label for="tipoPago">Tipo de Pago</label>
+                <input type="text" name="tipoPago" th:field ="*{tipoPago}" />
+                <br/>
+                
+                <input type ="submit" id="btn-save" value="Guardar"/>            
+            </form>
+        </div>
+    </div>
+    <footer class="footer">&COPY; Derechos Reservados, Curso SC-403 G3, Universidad Fidélitas</footer>
+</body>
+</html>

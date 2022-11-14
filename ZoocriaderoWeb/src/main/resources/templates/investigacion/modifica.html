@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>Zoocriadero</title>
+        <meta charset="UTF-8">
+            <link href="/css/main.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+        <header class="header">
+            <h2>Datos de Investigacion</h2>
+        </header>
+        <div class="contenido">
+            <a th:href="@{/investigacion/listado}">Regresar</a>
+            <br/>
+            <form th:action="@{/investigacion/guardar}"
+                  method="post"
+                  th:object="${investigacion}">
+                <input type ="hidden" name="idInvestigacion" th:field="*{idInvestigacion}"/>
+                <label for="investigador">Investigador</label>
+                <input type="text" name="investigador" th:field ="*{investigador}" />
+                <br/>
+                <label for="fecha">Fecha</label>
+                <input type=datetime name="fecha" th:field ="*{fechaInvestigacion}" />
+                <br/>
+                <label for="especie">Especie</label>
+                <input type="text" name="especie" th:field ="*{especieInvestigacion}" />
+                <br/>
+                <label for="descripcion">Descripción</label>
+                <input type="text" name="descripcion" th:field ="*{descripcionInvestigacion}"/>
+                <br/>
+                <input type ="submit" id="btn-save" value="Guardar"/>            
+            </form>
+        </div>
+        <footer class="footer">&COPY; Derechos Reservados, Curso SC-403 G3, Universidad Fidélitas</footer>
+        </tbody>
+</html>

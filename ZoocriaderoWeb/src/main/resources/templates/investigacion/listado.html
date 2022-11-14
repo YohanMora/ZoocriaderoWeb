@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Zoocriadero</title>
+        <meta charset="UTF-8">
+        <link href="/css/main.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+        <header class="header">
+            <h2>Listado de Investigaciones</h2>
+        </header>
+        <br>
+        <div class="contenedor">
+            <div class="tablas">
+                <a th:href="@{/investigacion/nueva}">Nueva Investigacion</a>
+                <div th:if ="${investigaciones != null and !investigaciones.empty}">
+                    <br>
+                    <table align="center" border="1" >
+                        <thead>
+                            <tr>
+                                <th>Investigador</th>
+                                <th>Fecha</th>
+                                <th>Especie</th>
+                                <th>Descripción</th>
+                                <th>Eliminar</th>
+                                <th>Modificar</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr th:each="investigacion : ${investigaciones}">
+                                <td th:text="${investigacion.investigador}"></td>
+                                <td th:text="${investigacion.fechaInvestigacion}"></td>
+                                <td th:text="${investigacion.especieInvestigacion}"></td>
+                                <td th:text="${investigacion.descripcionInvestigacion}"></td>
+                                <td><a th:href="@{/investigacion/eliminar/} + ${investigacion.idInvestigacion}">Eliminar</a></td>  
+                                <td><a th:href="@{/investigacion/modificar/} + ${investigacion.idInvestigacion}">Modificar</a></td>  
+                            </tr>
+                        </tbody>
+                    </table>
+                    <br>
+                    <a th:href="@{/login/login}">Salir</a>
+                </div>
+                <div th:if ="${investigaciones == null or investigaciones.empty}">
+                    No tenemos lista de investigaciones que mostrar...
+                </div>
+            </div>
+        </div>
+        <footer class="footer">&COPY; Derechos Reservados, Curso SC-403 G3, Universidad Fidélitas</footer>
+    </body>
+</html>

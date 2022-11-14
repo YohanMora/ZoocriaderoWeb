@@ -103,3 +103,38 @@ input{
     margin: 15px;
     height: 30px;
 }
+
+.tablas{
+    top: 200px;
+    background-color: lightsteelblue;
+    position: fixed;
+    padding: 30px;
+    margin-left: 30%;
+    margin-right: 30%;
+    border-radius: 7px;
+    color: whitesmoke;
+   
+}
+
+.contenido{
+    top: 200px;
+    background-color: lightsteelblue;
+    position: fixed;
+    padding: 30px;
+    margin-left: 45%;
+    margin-right:45%;
+    border-radius: 7px;
+    color: whitesmoke;
+}
+
+#btn-save{
+    top:10px;
+    background-color: #301934 ;
+    position: relative;
+    color: whitesmoke;
+    width: 125px;
+    margin-left: 15%;
+    margin-right:40%;
+    padding: 10px;
+    border-radius: 10px;
+}

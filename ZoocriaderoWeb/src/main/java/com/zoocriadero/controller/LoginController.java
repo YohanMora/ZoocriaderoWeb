@@ -40,7 +40,7 @@ public class LoginController {
             return "/login/login";
         }
 
-        return "/login/changePassword";
+        return "/index";
     }
 
     @GetMapping("/login/changePassword")
