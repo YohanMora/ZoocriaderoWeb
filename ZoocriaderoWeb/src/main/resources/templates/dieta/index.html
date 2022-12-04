@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Alimentación</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="/css/main.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+        <header class="header">
+            <h1>Alimentación</h1>
+        </header>
+        <br>
+        <div class="container">
+            </br></br></br></br>
+            <div class="menu-options">
+                <form th:action="@{/dieta/habilitarEventos}" th:object="${especie}"
+                      method="POST" class="was-validated">
+                    <label for="especie" style="color: #301934;" >Especie:</label>
+                    <select th:field="*{idEspecie}" class="input-form" name="idEspecie" onchange="this.form.submit()">
+                        <option
+                            th:each="item : ${listEspecies}"
+                            th:value="${item.idEspecie}"
+                            th:text="${item.nombre}"
+                            />
+                    </select>
+                    </br></br></br></br>
+                    <a th:href="@{/dieta/nueva/} + *{idEspecie}" class="btn-options">Crear dieta del animal</a>
+                    <a th:href="@{/dieta/leer/} + *{idEspecie}" class="btn-options">Leer dieta del animal</a></br></br></br></br></br>
+                    <a th:href="@{/dieta/modificar/} + *{idEspecie}" class="btn-options">Actualizar dieta del animal</a>
+                    <a th:href="@{/dieta/eliminar/} + *{idEspecie}" class="btn-options" >Eliminar dieta del animal</a></br></br></br></br></br>
+                    <a th:href="@{/menu}"style="color: #301934;
+                       font-size: 14px; text-decoration: transparent">
+                        ⬅ Volver al menú principal</a>
+                </form>
+            </div>
+        </div>
+        <footer class="footer">&COPY; Derechos Reservados, Curso SC-403 G3, Universidad Fidélitas</footer>
+    </body>
+</html>

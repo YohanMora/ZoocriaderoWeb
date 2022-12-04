@@ -24,7 +24,7 @@
 #login-form{
     padding-top: 70px;
     padding-bottom: 70px;
-   
+
 }
 
 #user-form{
@@ -88,7 +88,7 @@ input{
     margin-right: 30%;
     border-radius: 7px;
     color: whitesmoke;
-    
+
 }
 
 #btn-change-password{
@@ -98,7 +98,7 @@ input{
     border-color: #301934;
 }
 
-#input-change-password{
+.input-form{
     width: 300px;
     margin: 15px;
     height: 30px;
@@ -113,7 +113,7 @@ input{
     margin-right: 30%;
     border-radius: 7px;
     color: whitesmoke;
-   
+
 }
 
 .contenido{
@@ -141,7 +141,7 @@ input{
 
 .aParent div {
     float: left;
-    clear: none; 
+    clear: none;
 }
 
 .menu{
@@ -163,27 +163,45 @@ hr{
 
 /* Center the loader */
 #loader {
-  position: absolute;
-  left: 52%;
-  top: 50%;
-  z-index: 1;
-  width: 50px;
-  height: 50px;
-  margin: -76px 0 0 -76px;
-  border: 10px solid #f3f3f3;
-  border-radius: 50%;
-  border-top: 10px solid #301934;
-  -webkit-animation: spin 2s linear infinite;
-  animation: spin 2s linear infinite;
-  display: none;
+    position: absolute;
+    left: 52%;
+    top: 50%;
+    z-index: 1;
+    width: 50px;
+    height: 50px;
+    margin: -76px 0 0 -76px;
+    border: 10px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 10px solid #301934;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+    display: none;
 }
 
 @-webkit-keyframes spin {
-  0% { -webkit-transform: rotate(0deg); }
-  100% { -webkit-transform: rotate(360deg); }
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.btn-options{
+    background-color: lightsteelblue;
+    padding: 10px;
+    border-radius: 5px;
+    color: whitesmoke;
+    text-decoration: none;
+    margin: 15px;
+    
 }

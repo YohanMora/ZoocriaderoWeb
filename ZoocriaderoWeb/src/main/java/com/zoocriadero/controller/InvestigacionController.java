@@ -2,6 +2,7 @@
 package com.zoocriadero.controller;
 
 import com.zoocriadero.domain.Investigacion;
+import com.zoocriadero.service.EspecieService;
 import com.zoocriadero.service.InvestigacionService;
 import com.zoocriadero.service.InvestigacionService;
 import lombok.extern.slf4j.Slf4j;
@@ -16,6 +17,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class InvestigacionController {
     @Autowired
     private InvestigacionService investigacionService;
+    @Autowired
+    private EspecieService especieService;
     
     @GetMapping("/investigacion/listado")
     public String inicio(Model model){
@@ -31,6 +34,7 @@ public class InvestigacionController {
     @PostMapping("/investigacion/guardar")
     public String guardarInvestigacion(Investigacion investigacion){
         investigacionService.save(investigacion);
+        especieService.insertEspecie(investigacion.getEspecieInvestigacion());
         return "redirect:/investigacion/listado";
     }
     

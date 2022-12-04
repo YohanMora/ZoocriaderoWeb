@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Solictud de Compra</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="/css/main.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+        <div id="loader"></div>
+        <header class="header">
+            <h1>Solictud de Compra</h1>
+        </header>
+        <br/>
+        <div class="container">
+            <div class="change-password-form" style="top: 13%;">
+                <form th:action="@{/solicitud/enviarSolicitud}"
+                      method="post"
+                      th:object="${solicitud}">
+                    <label for="nombre">Nombre</label>
+                    <br/>
+                    <input type="text" name="nombre"
+                           class="input-form" required/>
+                    <br/>
+                    <label for="telefono">Teléfono</label>
+                    <br/>
+                    <input type="text" name="telefono"
+                           class="input-form" required/>
+                    <br/>
+                    <label for="cedula">Cédula</label>
+                    <br/>
+                    <input type="text" name="cedula"
+                           class="input-form" required/>
+                    <br/>
+                    <label for="correo">Correo:</label>
+                    <br/>
+                    <input type="email" name="correo"
+                           class="input-form" required/>
+                    <br/>
+                    <label for="especie" >Especie</label>
+                    <br/>
+                        <select class="input-form" name="especie.idEspecie">
+                            <option
+                                th:each="item : ${listEspecies}"
+                                th:value="${item.idEspecie}"
+                                th:text="${item.nombre}"
+                                />
+                        </select>
+                    <br/>
+                    <input type="submit" id="btn-change-password" value="Enviar solicitud" onclick="myFunction()" />
+<!--                    <div class="aParent">
+                        <div>
+                            <a href="/menu" style="color: #301934;
+                               font-size: 14px; text-decoration: transparent;
+                               pointer-events: none;">
+                                ⬅ Volver</a>
+                        </div>
+                    </div>-->
+                </form>
+            </div>
+            <footer class="footer">&COPY; Derechos Reservados, Curso SC-403 G3, Universidad Fidélitas</footer>
+        </div>
+        <script>
+            function myFunction() {
+                document.getElementById("loader").style.display = "block";
+            }
+        </script>
+    </body>
+</html>

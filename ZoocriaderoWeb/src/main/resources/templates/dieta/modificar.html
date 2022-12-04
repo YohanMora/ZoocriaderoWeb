@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Crear Dieta del Animal</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="/css/main.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+        <header class="header">
+            <h1>Crear Dieta del Animal</h1>
+        </header>
+        <br>
+        <div class="container">
+            <div class="change-password-form" style="top: 13%;">
+                <div style="text-align: left;">
+                    <a th:href="@{/dieta/index}">Regresar</a>
+                </div>
+                
+                <br/>
+                <form th:action="@{/dieta/guardarDieta}"
+                      method="post"
+                      th:object="${dieta}">
+                    <input type ="hidden" name="idDieta" th:field="*{idDieta}"/>
+                    <input type ="hidden" name="especie.idEspecie" th:field="*{especie.idEspecie}"/>
+                    <label for="alimento">Alimento</label></br>
+                    <input type="text" name="alimento" th:field ="*{alimento}" class="input-form" />
+                    <br/>
+                    <label for="peso">Peso</label></br>
+                    <input type="number" name="peso" th:field ="*{peso}" class="input-form"/>
+                    <br/>
+                    <label for="calorias">Calorias</label></br>
+                    <input type="number" name="calorias" th:field ="*{calorias}" class="input-form" />
+                    <br/>
+                    <label for="cantidad">Cantidad</label></br>
+                    <input type="number" name="cantidad" th:field ="*{cantidad}" class="input-form"/>
+                    <br/>
+                    <label for="fecha">Fecha</label></br>
+                    <input type="datetime-local" name="fecha" th:field ="*{fecha}" class="input-form"><br>
+                    <br/>  
+                    <input type ="submit" id="btn-save" value="Crear Dieta" style="margin: auto;"/>            
+                </form>
+                <br><br>
+            </div>
+        </div>
+        <footer class="footer">&COPY; Derechos Reservados, Curso SC-403 G3, Universidad Fidélitas</footer>
+    </body>
+</html>

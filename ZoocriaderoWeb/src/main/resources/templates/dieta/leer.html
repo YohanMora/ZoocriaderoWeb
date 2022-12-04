@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Leer Dieta del Animal</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="/css/main.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+        <header class="header">
+            <h1>Leer Dieta del Animal</h1>
+        </header>
+        <br>
+        <div class="container">
+            <div th:each="dieta : ${dietas}" class="change-password-form" style="font-size: 21px; text-align: left;">
+                <div style="text-align: left; font-size: 16px;">
+                    <a th:href="@{/dieta/index}">Regresar</a>
+                </div>
+                <br/>
+                <label for="especie">Especie: </label>
+                <label for="especie" th:text="${dieta.especie.nombre}"></label>
+                <br/><br/>
+                <label for="alimento">Alimento: </label>
+                <label for="especie" th:text="${dieta.alimento}"></label>
+                <br/><br/>
+                <label for="peso">Peso(kg): </label>
+                <label for="especie" th:text="${dieta.peso}"></label>
+                <br/><br/>
+                <label for="calorias">Calorias(cal): </label>
+                <label for="especie" th:text="${dieta.calorias}"></label>
+                <br/><br/>
+                <label for="cantidad">Cantidad: </label>
+                <label for="especie" th:text="${dieta.cantidad}"></label>
+                <br/><br/>
+                <label for="fecha">Fecha: </label>
+                <label for="especie" th:text="${dieta.fecha}"></label>
+            </div>
+        </div>
+        <footer class="footer">&COPY; Derechos Reservados, Curso SC-403 G3, Universidad Fidélitas</footer>
+    </body>
+</html>
