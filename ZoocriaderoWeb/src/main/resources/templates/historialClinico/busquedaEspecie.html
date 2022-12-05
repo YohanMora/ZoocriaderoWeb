@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Historial Clínico</title>
+        <meta charset="UTF-8">
+        <link href="/css/main.css" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+        <header class="header">
+            <h2>Busqueda de Historiales Clínicos por nombre de especie</h2>
+        </header>
+        <div class="contenido">
+            <a th:href="@{/historialClinico/index}">Regresar</a>
+            <br>
+            <br/>
+            <br/>
+            <form th:action="@{/historialClinico/buscarEspecie}"
+                  method="post"
+                  th:object="${historialClinico}">
+                <label for="nombreEspecie">Nombre de la especie a buscar: </label>
+                <input type="text" name="nombreEspecie" th:field="*{nombreEspecie}"/>
+                <br/>
+                <br/>
+                <input type="submit" name="Buscar" value="Buscar" />
+            </form>
+            <br/>
+            <br/>
+            <div th:if="${historialesClinicos != null and !historialesClinicos.empty}">
+                <br>
+                <table align="center" border="1" >
+                    <thead>
+                        <tr>
+                            <th>Nombre Especie</th>
+                            <th>Característica físicas</th>
+                            <th>Tipo especie</th>
+                            <th>Sexo</th>
+                            <th>Fecha</th>
+                            <th>Tratamiento</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="historialClinico : ${historialesClinicos}">
+                            <td th:text="${historialClinico.nombreEspecie}"></td>
+                            <td th:text="${historialClinico.caracteristicasFisicas}"></td>
+                            <td th:text="${historialClinico.tipoEspecie}"></td>
+                            <td th:text="${historialClinico.sexo}"></td>
+                            <td th:text="${historialClinico.fecha}"></td>
+                            <td th:text="${historialClinico.tratamiento}"></td> 
+                        </tr>
+                    </tbody>
+                </table>
+                <br>
+                <a th:href="@{/menu}"style="color: #301934;
+                   font-size: 14px; text-decoration: transparent">
+                    ⬅ Volver al menú principal</a>
+            </div>
+            <div th:if ="${historialesClinicos == null or historialesClinicos.empty}">
+                No hay historiales clinicos que mostrar para la especie indicada...
+            </div>
+        </div>
+        <footer class="footer">&COPY; Derechos Reservados, Curso SC-403 G3, Universidad Fidélitas</footer>
+    </body>
+</html>

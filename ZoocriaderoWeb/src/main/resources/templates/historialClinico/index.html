@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Historial Clínico</title>
+        <meta charset="UTF-8">
+        <link href="/css/main.css" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+        <header class="header">
+            <h2>Listado de Historiales Clínicos</h2>
+        </header>
+        <br>
+        <div class="contenedor">
+            <div class="tablas">
+                <a th:href="@{/historialClinico/nuevo}">Nuevo Historial Clínico</a>
+                <a th:href="@{/historialClinico/busquedaEspecie}">Buscar por especie</a>
+                <div th:if="${historialesClinicos != null and !historialesClinicos.empty}">
+                    <br>
+                    <table align="center" border="1" >
+                        <thead>
+                            <tr>
+                                <th>Nombre Especie</th>
+                                <th>Característica físicas</th>
+                                <th>Tipo especie</th>
+                                <th>Sexo</th>
+                                <th>Fecha</th>
+                                <th>Tratamiento</th>
+                                <th>Eliminar</th>
+                                <th>Modificar</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr th:each="historialClinico : ${historialesClinicos}">
+                                <td th:text="${historialClinico.nombreEspecie}"></td>
+                                <td th:text="${historialClinico.caracteristicasFisicas}"></td>
+                                <td th:text="${historialClinico.tipoEspecie}"></td>
+                                <td th:text="${historialClinico.sexo}"></td>
+                                <td th:text="${historialClinico.fecha}"></td>
+                                <td th:text="${historialClinico.tratamiento}"></td>
+                                <td><a th:href="@{/historialClinico/eliminar/} + ${historialClinico.idHistorialClinico}">Eliminar</a></td>  
+                                <td><a th:href="@{/historialClinico/modificar/} + ${historialClinico.idHistorialClinico}">Modificar</a></td>  
+                            </tr>
+                        </tbody>
+                    </table>
+                    <br>
+                    <a th:href="@{/menu}"style="color: #301934;
+                       font-size: 14px; text-decoration: transparent">
+                        ⬅ Volver al menú principal</a>
+                </div>
+                <div th:if ="${historialesClinicos == null or historialesClinicos.empty}">
+                    No tenemos lista de historiales clinicos que mostrar...
+                </div>
+            </div>
+        </div>
+        <footer class="footer">&COPY; Derechos Reservados, Curso SC-403 G3, Universidad Fidélitas</footer>
+    </body>
+</html>
