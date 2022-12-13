@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Reportes</title>
+        <meta charset="UTF-8">
+        <link href="/css/main.css" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+        <header class="header">
+            <h2>Listado de Reportes</h2>
+        </header>
+        <br>
+        <div class="contenedor">
+            <div class="tablas">
+                <a th:href="@{/reporte/nuevo}">Nuevo Reporte</a>
+                <div th:if="${reportes != null and !reportes.empty}">
+                    <br>
+                    <table align="center" border="1" >
+                        <thead>
+                            <tr>
+                                <th>Fecha de inicio</th>
+                                <th>Fecha final</th>
+                                <th>Tipo de reporte</th>
+                                <th>Eliminar</th>
+                                <th>Modificar</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr th:each="reporte : ${reportes}">
+                                <td th:text="${reporte.fechaInicio}"></td>
+                                <td th:text="${reporte.fechaFinal}"></td>
+                                <td th:text="${reporte.tipoReporte}"></td>
+                                <td><a th:href="@{/reporte/eliminar/} + ${reporte.idReporte}">Eliminar</a></td>  
+                                <td><a th:href="@{/reporte/modifica/} + ${reporte.idReporte}">Modificar</a></td>  
+                            </tr>
+                        </tbody>
+                    </table>
+                    <br>
+                    <a th:href="@{/menu}"style="color: #301934;
+                       font-size: 14px; text-decoration: transparent">
+                        ⬅ Volver al menú principal</a>
+                </div>
+                <div th:if ="${reportes == null or reportes.empty}">
+                    No tenemos lista de historiales clinicos que mostrar...
+                </div>
+            </div>
+        </div>
+        <footer class="footer">&COPY; Derechos Reservados, Curso SC-403 G3, Universidad Fidélitas</footer>        
+    </body>
+</html>

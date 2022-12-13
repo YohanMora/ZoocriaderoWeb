@@ -44,4 +44,5 @@ public class VentaController {
         ventaService.delete(venta);
         return "redirect:/venta/listado";
     }
+    
 }
