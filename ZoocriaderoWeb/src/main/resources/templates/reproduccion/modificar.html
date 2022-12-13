@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>Zoocriadero</title>
+        <meta charset="UTF-8">
+        <link href="/css/main.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+        <header class="header">
+            <h2>Datos de Reproduccion de la especie</h2>
+        </header>
+        <div class="contenido">
+            <a th:href="@{/reproduccion/index}">Regresar</a>
+            <br>
+            <form th:action="@{/reproduccion/guardar}"
+                  method="post"
+                  th:object="${reproduccion}">
+                <input type ="hidden" name="idReproduccion" th:field="*{idReproduccion}"/>
+                <input type ="hidden" name="especie.idEspecie" th:field="*{especie.idEspecie}"/>
+                <label for="nombre">Nombre de la especie</label>
+                <br/>
+                <input th:if="${listEspecies == null or listEspecies.empty}" type="text" name="especie.nombre" th:field ="*{especie.nombre}" disabled />
+                <select th:if="${listEspecies != null and !listEspecies.empty}" name="especie.idEspecie">
+                    <option
+                        th:each="item : ${listEspecies}"
+                        th:value="${item.idEspecie}"
+                        th:text="${item.nombre}"
+                    />
+                 </select>
+                <br/>
+                <br>
+                <label for="descripcion">Descripción</label>
+                <input type="text" name="descripcion" th:field ="*{descripcion}" />
+                <br>
+                <label for="fecha">Fecha</label>
+                <input type=date name="fecha" th:field ="*{fecha}" />
+                <br>
+                <input type ="submit" id="btn-save" value="Guardar"/>            
+            </form>
+        </div>
+        <footer class="footer">&COPY; Derechos Reservados, Curso SC-403 G3, Universidad Fidélitas</footer>
+    </body>
+</html>

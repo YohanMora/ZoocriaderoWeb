@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Historial Clínico</title>
+        <meta charset="UTF-8">
+        <link href="/css/main.css" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+        <header class="header">
+            <h2>Listado de Reproducciones</h2>
+        </header>
+        <br>
+        <div class="contenedor">
+            <div class="tablas">
+                <a th:href="@{/reproduccion/nuevo}">Nueva Reproducción</a>
+                <div th:if="${listaReproduciones != null and !listaReproduciones.empty}">
+                    <br>
+                    <table align="center" border="1" >
+                        <thead>
+                            <tr>
+                                <th>Nombre Especie</th>
+                                <th>Descripción</th>
+                                <th>Fecha</th>
+                                <th>Eliminar</th>
+                                <th>Modificar</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr th:each="lista : ${listaReproduciones}">
+                                <td th:text="${lista.especie.nombre}"></td>
+                                <td th:text="${lista.descripcion}"></td>
+                                <td th:text="${lista.fecha}"></td>
+                                <td><a th:href="@{/reproduccion/eliminar/} + ${lista.idReproduccion}">Eliminar</a></td>  
+                                <td><a th:href="@{/reproduccion/modificar/} + ${lista.idReproduccion}">Modificar</a></td>  
+                            </tr>
+                        </tbody>
+                    </table>
+                    <br>
+                    <a th:href="@{/menu}"style="color: #301934;
+                       font-size: 14px; text-decoration: transparent">
+                        ⬅ Volver al menú principal</a>
+                </div>
+                <div th:if ="${listaReproduciones == null or listaReproduciones.empty}">
+                    No tenemos reproducciones que mostrar...
+                </div>
+            </div>
+        </div>
+        <footer class="footer">&COPY; Derechos Reservados, Curso SC-403 G3, Universidad Fidélitas</footer>
+    </body>
+</html>
