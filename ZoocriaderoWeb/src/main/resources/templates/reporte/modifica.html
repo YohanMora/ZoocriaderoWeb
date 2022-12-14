@@ -10,25 +10,30 @@
     <body>
         <header class="header">
             <h2>Datos de Reportes</h2>
-        </header>
-        <div class="contenido">
-            <a th:href="@{/reporte/listado}">Regresar</a>
-            <br>
-            <form th:action="@{/reporte/guardar}"
+        </header>  
+        <div class="customcontainer">
+            <div class="change-password-form" style="top: 13%;">
+                <div style="text-align: left;">
+                    <a th:href="@{/reporte/listado}">Regresar</a>
+                </div>
+                <br/>
+                <form th:action="@{/reporte/guardar}"
                   method="post"
                   th:object="${reportes}">
-                <input type ="hidden" name="idReporte" th:field="*{idReporte}"/>
-                <label for="fechaInicio">Fecha de inicio</label>
-                <input type="date" name="fechaInicio" th:field ="*{fechaInicio}" />
-                <br>
-                <label for="fechaFinal">Fecha final</label>
-                <input type="date" name="fechaFinal" th:field ="*{fechaFinal}" />
-                <br>
-                <label for="tipoReporte">Tipo de reporte</label>
-                <input type="text" name="tipoReporte" th:field ="*{tipoReporte}" />
-                <br>                
-                <input type ="submit" id="btn-save" value="Guardar"/>            
-            </form>
+                    <input type ="hidden" name="idReporte" th:field="*{idReporte}"/>
+                    <label for="fechaInicio">Fecha de inicio</label><br/>
+                    <input type="date" name="fechaInicio" th:field ="*{fechaInicio}" class="input-form" />
+                    <br>
+                    <label for="fechaFinal">Fecha final</label><br/>
+                    <input type="date" name="fechaFinal" th:field ="*{fechaFinal}" class="input-form"/>
+                    <br>
+                    <label for="tipoReporte">Tipo de reporte</label><br/>
+                    <input type="text" name="tipoReporte" th:field ="*{tipoReporte}" class="input-form"/>
+                    <br>
+                    <input type ="submit" id="btn-save" value="Guardar" style="margin: auto;"/>            
+                </form>
+                <br><br>
+            </div>
         </div>
         <footer class="footer">&COPY; Derechos Reservados, Curso SC-403 G3, Universidad Fidélitas</footer>
     </body>

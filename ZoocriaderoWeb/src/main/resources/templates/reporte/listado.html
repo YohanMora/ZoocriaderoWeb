@@ -23,7 +23,6 @@
                                 <th>Fecha final</th>
                                 <th>Tipo de reporte</th>
                                 <th>Eliminar</th>
-                                <th>Modificar</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -32,7 +31,6 @@
                                 <td th:text="${reporte.fechaFinal}"></td>
                                 <td th:text="${reporte.tipoReporte}"></td>
                                 <td><a th:href="@{/reporte/eliminar/} + ${reporte.idReporte}">Eliminar</a></td>  
-                                <td><a th:href="@{/reporte/modifica/} + ${reporte.idReporte}">Modificar</a></td>  
                             </tr>
                         </tbody>
                     </table>

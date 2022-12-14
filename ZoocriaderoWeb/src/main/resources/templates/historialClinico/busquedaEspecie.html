@@ -10,23 +10,22 @@
         <header class="header">
             <h2>Busqueda de Historiales Clínicos por nombre de especie</h2>
         </header>
-        <div class="contenido">
-            <a th:href="@{/historialClinico/index}">Regresar</a>
-            <br>
-            <br/>
-            <br/>
-            <form th:action="@{/historialClinico/buscarEspecie}"
+        <div class="customcontainer">
+            <div class="change-password-form" style="top: 13%;">
+                <div style="text-align: left;">
+                    <a th:href="@{/historialClinico/index}">Regresar</a>
+                </div>
+                <br/>
+                <form th:action="@{/historialClinico/buscarEspecie}"
                   method="post"
                   th:object="${historialClinico}">
-                <label for="nombreEspecie">Nombre de la especie a buscar: </label>
-                <input type="text" name="nombreEspecie" th:field="*{nombreEspecie}"/>
-                <br/>
-                <br/>
-                <input type="submit" name="Buscar" value="Buscar" />
-            </form>
-            <br/>
-            <br/>
-            <div th:if="${historialesClinicos != null and !historialesClinicos.empty}">
+                    <label for="nombreEspecie">Nombre de la especie a buscar: </label>
+                    <input type="text" name="nombreEspecie" th:field="*{nombreEspecie}" class="input-form"/>
+                    <br/>
+                    <input type ="submit" id="btn-save" value="Buscar"/>            
+                </form>
+                <br><br>
+                <div th:if="${historialesClinicos != null and !historialesClinicos.empty}">
                 <br>
                 <table align="center" border="1" >
                     <thead>
@@ -58,7 +57,9 @@
             <div th:if ="${historialesClinicos == null or historialesClinicos.empty}">
                 No hay historiales clinicos que mostrar para la especie indicada...
             </div>
+            </div>
         </div>
+
         <footer class="footer">&COPY; Derechos Reservados, Curso SC-403 G3, Universidad Fidélitas</footer>
     </body>
 </html>

@@ -11,30 +11,38 @@
         <header class="header">
             <h2>Datos del Historial Clínico</h2>
         </header>
-        <div class="contenido">
-            <a th:href="@{/historialClinico/index}">Regresar</a>
-            <br>
-            <form th:action="@{/historialClinico/guardar}"
-                  method="post"
-                  th:object="${historialClinico}">
-                <input type ="hidden" name="idHistorialClinico" th:field="*{idHistorialClinico}"/>
-                <label for="nombreEspecie">Nombre de la especie</label>
-                <input type="text" name="nombreEspecie" th:field ="*{nombreEspecie}" />
-                <br>
-                <label for="caracteristicasFisicas">Características físicas</label>
-                <input type="text" name="caracteristicasFisicas" th:field ="*{caracteristicasFisicas}" />
-                <br>
-                <label for="tipoEspecie">Tipo de especie</label>
-                <input type="text" name="tipoEspecie" th:field ="*{tipoEspecie}" />
-                <br>
-                <label for="fecha">Fecha</label>
-                <input type=date name="fecha" th:field ="*{fecha}" />
-                <br>
-                <label for="tratamiento">Tratmamiento</label>
-                <input type="text" name="tratamiento" th:field ="*{tratamiento}" />
-                <br>
-                <input type ="submit" id="btn-save" value="Guardar"/>            
-            </form>
+        <div class="customcontainer">
+            <div class="change-password-form" style="top: 13%;">
+                <div style="text-align: left;">
+                    <a th:href="@{/historialClinico/index}">Regresar</a>
+                </div>
+                <br/>
+                <form th:action="@{/historialClinico/guardar}"
+                      method="post"
+                      th:object="${historialClinico}">
+                    <input type ="hidden" name="idHistorialClinico" th:field="*{idHistorialClinico}"/>
+                    <label for="nombreEspecie">Nombre de la especie</label></br>
+                    <input type="text" name="nombreEspecie" th:field ="*{nombreEspecie}" class="input-form" />
+                    <br>
+                    <label for="caracteristicasFisicas">Características físicas</label></br>
+                    <input type="text" name="caracteristicasFisicas" th:field ="*{caracteristicasFisicas}" class="input-form" />
+                    <br>
+                    <label for="tipoEspecie">Tipo de especie</label></br>
+                    <input type="text" name="tipoEspecie" th:field ="*{tipoEspecie}" class="input-form"/>
+                    <br>
+                    <label for="sexo">Sexo</label></br>
+                    <input type="text" name="sexo" th:field ="*{sexo}" class="input-form"/>
+                    <br>
+                    <label for="fecha">Fecha</label></br>
+                    <input type=date name="fecha" th:field ="*{fecha}" class="input-form"/>
+                    <br>
+                    <label for="tratamiento">Tratmamiento</label></br>
+                    <input type="text" name="tratamiento" th:field ="*{tratamiento}" class="input-form"/>
+                    <br>
+                    <input type ="submit" id="btn-save" value="Guardar" style="margin: auto;"/>            
+                </form>
+                <br><br>
+            </div>
         </div>
         <footer class="footer">&COPY; Derechos Reservados, Curso SC-403 G3, Universidad Fidélitas</footer>
     </body>

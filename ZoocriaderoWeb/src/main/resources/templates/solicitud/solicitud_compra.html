@@ -16,7 +16,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
             <h1>Solictud de Compra</h1>
         </header>
         <br/>
-        <div class="container">
+        <div class="customcontainer">
             <div class="change-password-form" style="top: 13%;">
                 <form th:action="@{/solicitud/enviarSolicitud}"
                       method="post"
@@ -52,14 +52,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                         </select>
                     <br/>
                     <input type="submit" id="btn-change-password" value="Enviar solicitud" onclick="myFunction()" />
-<!--                    <div class="aParent">
+                    <div class="aParent">
                         <div>
-                            <a href="/menu" style="color: #301934;
-                               font-size: 14px; text-decoration: transparent;
-                               pointer-events: none;">
+                            <a href="/" style="color: #301934;
+                               font-size: 14px; text-decoration: transparent;">
                                 ⬅ Volver</a>
                         </div>
-                    </div>-->
+                    </div>
                 </form>
             </div>
             <footer class="footer">&COPY; Derechos Reservados, Curso SC-403 G3, Universidad Fidélitas</footer>

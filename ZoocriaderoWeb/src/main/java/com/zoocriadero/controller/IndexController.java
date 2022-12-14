@@ -5,6 +5,8 @@
 package com.zoocriadero.controller;
 
 import com.zoocriadero.domain.Usuario;
+import com.zoocriadero.service.ProductoService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,8 +18,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class IndexController {
     
+    @Autowired
+    private ProductoService productoService;
+    
     @RequestMapping("/")
-    public String page(Model model, Usuario usuario) {
+    public String page(Model model) {
+        
+        var productos=productoService.getProductos();
+        model.addAttribute("productos", productos);
+        
+        return "index";
+    }
+    
+    @RequestMapping("/login")
+    public String login(Model model, Usuario usuario) {
         model.addAttribute("usuario", usuario);
         return "/login/login";
     }
@@ -27,5 +41,6 @@ public class IndexController {
         //model.addAttribute("usuario", usuario);
         return "/menu";
     }
+    
     
 }
